@@ -1,49 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    
-    //FIXEAR EL ZOOM IN Y EL ZOOM OUT
-    public float zoomSpeed = 5f; // Velocidad de zoom
-    public float minZoomDistance = 2f; // Distancia mínima de zoom (zoom out)
-    public float maxZoomDistance = 10f; // Distancia máxima de zoom (zoom in)
+   [SerializeField] private float zoomSpeed = 10f;
+   [SerializeField] private float minZoom = 5f;
+   [SerializeField] private float maxZoom = 15f;
 
-    private Cinemachine.CinemachineFreeLook freeLookCamera; // Referencia al componente de la cámara
+    private CinemachineVirtualCamera virtualCam;
+    private bool _isvirtualCamNotNull;
 
-    private void Start()
+    void Start()
     {
-        // Obtener la referencia al componente de la cámara
-        freeLookCamera = GetComponent<Cinemachine.CinemachineFreeLook>();
+        _isvirtualCamNotNull = virtualCam != null;
+        virtualCam = GetComponent<CinemachineVirtualCamera>();
     }
 
     void Update()
     {
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-
-        // Si el usuario hace scroll hacia adelante, hace zoom in
-        if (scrollInput > 0)
+        if (_isvirtualCamNotNull)
         {
-            ZoomIn();
+            virtualCam.m_Lens.FieldOfView -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+            virtualCam.m_Lens.FieldOfView = Mathf.Clamp(virtualCam.m_Lens.FieldOfView, minZoom, maxZoom);
         }
-        // Si el usuario hace scroll hacia atrás, hace zoom out
-        else if (scrollInput < 0)
-        {
-            ZoomOut();
-        }
-    }
-
-    void ZoomIn()
-    {
-        //TIRA NULL REFERENCE
-        freeLookCamera.m_Lens.OrthographicSize = Mathf.Clamp(freeLookCamera.m_Lens.OrthographicSize - zoomSpeed, minZoomDistance, maxZoomDistance);
-    }
-
-    void ZoomOut()
-    {
-        //TIRA NULL REFERENCE
-        freeLookCamera.m_Lens.OrthographicSize = Mathf.Clamp(freeLookCamera.m_Lens.OrthographicSize + zoomSpeed, minZoomDistance, maxZoomDistance);
     }
     
 }
