@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject _splash;
     public void StartGame()
     {
         //Juego 
@@ -14,7 +15,10 @@ public class LevelManager : MonoBehaviour
     public void MainMenu()
     {
         //Menu
-        SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     public void QuitGame()
     {
@@ -23,6 +27,10 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+           _splash.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(1);
         }
