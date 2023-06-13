@@ -4060,7 +4060,7 @@ GameObject:
   - component: {fileID: 973645621}
   - component: {fileID: 973645620}
   - component: {fileID: 973645625}
-  - component: {fileID: 973645624}
+  - component: {fileID: 973645626}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4150,18 +4150,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &973645624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973645619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ede222d20c3a948bd43b6f285ee0f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &973645625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4175,6 +4163,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 132081970}
+--- !u!114 &973645626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973645619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fb5793e21d1bc4ba7a0e54de80bfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &977140633
 PrefabInstance:
   m_ObjectHideFlags: 0
