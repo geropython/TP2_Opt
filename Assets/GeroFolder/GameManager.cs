@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public void StartGame()
     {
@@ -19,12 +19,5 @@ public class LevelManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(1);
-        }
     }
 }
