@@ -11,7 +11,7 @@ public class CharacterZoomOrtho : MonoBehaviour
 
     private void Update()
     {
-        Zoom2();
+        Zoom();
     }
     
     private void Zoom()
@@ -53,4 +53,31 @@ public class CharacterZoomOrtho : MonoBehaviour
         float newSize = Mathf.MoveTowards(cam.orthographicSize, targetZoom, zoomSpeed * Time.deltaTime);
         cam.orthographicSize = newSize;
     }
+    
+    private float scroll = 0;        //Input axis of your scroll wheel.
+    public float addedSpeed;    //Input axis doesnt have enough power to make camera zoom properly so we add it
+    public float cameraSpeed;   //Lerp speed (PLAY AROUND WITH IT!)
+ 
+    void Zoom3()
+    {
+        //If a scroll happens zoom or zoom out:
+        scroll = Input.GetAxis("Mouse ScrollWheel");
+        Camera.main.orthographicSize += scroll + addedSpeed;
+ 
+ 
+        //IF youre zooming (IN) then lerp and zoom to your mouse position
+        if (scroll < 0)
+        {
+            cam.transform.position = Vector2.Lerp(cam.transform.position,
+                cam.ScreenToWorldPoint(Input.mousePosition),
+                cameraSpeed * Time.deltaTime);
+ 
+ 
+            //KEEP THE Z POSITION BEHIND YOUR OBJECTS!
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -20);
+        }
+ 
+        //If scroll > 0 then just zoom out but leave your camera at the position that it is. YOU CAN CHANGE THIS
+    }
+
 }
