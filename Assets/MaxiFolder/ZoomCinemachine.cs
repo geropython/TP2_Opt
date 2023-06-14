@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ public class ZoomCinemachine : MonoBehaviour
     float cameraDistance;
     [SerializeField] float sensitivity = 10f;
     CinemachineComponentBase componentBase;
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     private void Update()
     {
