@@ -4467,6 +4467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870431991}
+  - component: {fileID: 870431992}
   m_Layer: 0
   m_Name: CAMERAS----------
   m_TagString: Untagged
@@ -4494,6 +4495,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870431992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870431990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5165a0467ce233642a6453fdaa11c5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 947723937}
+  camPositions:
+  - {fileID: 1667526997}
+  - {fileID: 193489873}
+  - {fileID: 544849968}
+  - {fileID: 1840645493}
 --- !u!1001 &885438222
 PrefabInstance:
   m_ObjectHideFlags: 0
